@@ -55,7 +55,7 @@ function validateData(data, length){
 function handleRequest(data, type){
   $.ajax({
     url: './registeration.php',
-    type: 'POST'
+    type: 'POST',
     data: data,
     error: () => {alert("Something gone wrong...")},
     success: function(message) {
