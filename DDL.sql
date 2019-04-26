@@ -52,9 +52,8 @@ ALTER TABLE `User`
 
 -- Constraints for table `Course`
 ALTER TABLE `Course`
-  ADD CONSTRAINT `course_belongsTo_dept` FOREIGN KEY (`department_id`) REFERENCES `Department` (`dept_id`);
+  ADD CONSTRAINT `Course_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `Department` (`dept_id`);
 
 -- Constraints for table `User`
 ALTER TABLE `User`
-  ADD CONSTRAINT `usr_belongsTo_dept` FOREIGN KEY (`department_id`) REFERENCES `Department` (`dept_id`);
-
+  ADD CONSTRAINT `User_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `Department` (`dept_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
