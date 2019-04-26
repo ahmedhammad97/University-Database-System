@@ -39,10 +39,11 @@ function fillOptions(options){
 
 function retrieveCourses(){
   let dept = $("select").val()
+  let name = $("h1").text().slice(8, $("h1").text().length - 1)
   $.ajax({
     url: './courses.php',
     type: 'POST',
-    data: {"dept": dept},
+    data: {"dept": dept, "name": name},
     error: () => {alert("Something gone wrong...")},
     success: function(courses) {
       if(courses === "1"){

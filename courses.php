@@ -9,6 +9,7 @@
     }
 
     $dept = $_POST["dept"];
+    $name = $_POST["name"];
     $sql = "SELECT * FROM Course WHERE department_id = '$dept' ";
     $result = $connection->query($sql);
     $rows = [];
@@ -17,6 +18,9 @@
         $rows[] = $row;
     }
     echo json_encode($rows);
+
+    $sql = "UPDATE User SET department_id = '$dept' WHERE username = '$name' ";
+    $result = $connection->query($sql);
 
 
     $connection->close();
