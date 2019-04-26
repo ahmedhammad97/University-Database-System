@@ -18,7 +18,7 @@
       email, username, password, registeration_date)
       VALUES ('$email', '$username', '$password', now())";
       if ($connection->query($sql) === TRUE) {
-          echo "2";
+          echo "2".$username;
       } else {
           echo "3".$connection->error;
       }
@@ -33,7 +33,7 @@
       if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
           if($row["password"] == $password){
-            echo "4". $username;
+            echo "4".$username;
           }
           else{
             echo "5";

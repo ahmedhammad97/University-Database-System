@@ -27,25 +27,25 @@ footer{
     margin-right: 30%;
     border-radius: 20px 20px 0 0;
 }
-table{
+#loginContainer table{
   width: 90%;
   text-align: center;
   margin-top: 20px;
   border-spacing: 0;
 }
-table td{
+#loginContainer table td{
   padding: 20px;
   color: white;
 }
-table td:first-child{
+#loginContainer table td:first-child{
   background-color: lightblue;
   border-radius: 50px 0 0 50px;
 }
-table td:last-child{
+#loginContainer table td:last-child{
   background-color: lightgreen;
   border-radius: 0 50px 50px 0;
 }
-input, button{
+input, button, select{
   width: 50%;
   background: transparent;
   border: 3px solid black;
@@ -67,4 +67,21 @@ button:hover{
   background-color: transparent;
   transition: all 0.5s ease-in-out;
   color: black;
+}
+#selectContainer, #coursesContainer{
+  display: none;
+}
+select{
+  color: black;
+}
+#coursesContainer table{
+  width: 90%;
+  text-align: center;
+  margin-top: 20px;
+  border-spacing: 10px;
+  padding: 10px;
+  color: black;
+}
+#coursesContainer table tr:first-child{
+  background-color: lightblue;
 }

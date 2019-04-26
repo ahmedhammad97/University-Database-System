@@ -52,16 +52,42 @@ function validateData(data, length){
   return true;
 }
 
-function handleRequest(data, type){
+function handleRequest(data){
   $.ajax({
     url: './registeration.php',
     type: 'POST',
     data: data,
     error: () => {alert("Something gone wrong...")},
     success: function(message) {
-      console.log(message);
+      handleResponse(message)
     },
-  });
+  })
+}
+
+function handleResponse(message){
+  switch (message.charAt(0)) {
+    case '1':
+      panic("connection")
+      break;
+    case '2':
+      next(message.slice(1))
+      break;
+    case '3':
+      alert("The Following Error occured: " + message.slice(1))
+      break;
+    case '4':
+      next(message.slice(1))
+      break;
+    case '5':
+      alert("Wrong password")
+      break;
+    case '6':
+      alert("Unregistered username")
+      break;
+    default:
+      alert("Unkown error")
+
+  }
 }
 
 // HELPER FUNCTIONS
@@ -69,7 +95,7 @@ function filterObject(obj, filter, filterValue){
    return Object.keys(obj).reduce((acc, val) =>
    (obj[val][filter] !== filterValue ? acc : {
        ...acc, [val]: obj[val]
-   }), {});
+   }), {})
 }
 
 function panic(reason){
@@ -79,6 +105,9 @@ function panic(reason){
       break;
     case "mailFormat":
       alert("Email must be in format: example@company.com")
+      break
+    case "connection":
+      alert("Connection to Database failed")
       break
   }
 }
